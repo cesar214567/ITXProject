@@ -6,6 +6,7 @@ import com.example.backend.commons.ValidatorConfig;
 import com.example.backend.domain.models.Product;
 import com.example.backend.domain.usecases.ProductUseCase;
 import com.example.backend.entrypoints.dtos.CreateProductDTO;
+import com.example.backend.entrypoints.dtos.MultiQueryDTO;
 import com.example.backend.entrypoints.dtos.QueryDTO;
 import com.example.backend.entrypoints.mappers.ProductMapper;
 import lombok.RequiredArgsConstructor;
@@ -31,10 +32,18 @@ public class ProductHandler {
                 .onErrorResume(Exception.class, exceptionHandler::handleException);
     }
 
-    public Mono<ServerResponse> getProducts(ServerRequest serverRequest){
+    public Mono<ServerResponse> getProductsByQuery(ServerRequest serverRequest){
         return Mono.just(serverRequest)
                 .map(ProductMapper::mapQueryDTOToQuery)
-                .flatMap(query -> ServerResponse.ok().body(productUseCase.findProductsOrderedBy(query),Product.class))
+                .flatMap(query -> ServerResponse.ok().body(productUseCase.findProductsOrderedByQuery(query),Product.class))
+                .doOnError(techLogger::logInfo)
+                .onErrorResume(Exception.class, exceptionHandler::handleException);
+    }
+
+    public Mono<ServerResponse> getProductsByMultiQuery(ServerRequest serverRequest){
+        return serverRequest.bodyToMono(MultiQueryDTO.class)
+                .map(ProductMapper::mapQueryDTOToMultiQuery)
+                .flatMap(query -> ServerResponse.ok().body(productUseCase.findProductsOrderedByMultiQuery(query),Product.class))
                 .doOnError(techLogger::logInfo)
                 .onErrorResume(Exception.class, exceptionHandler::handleException);
     }

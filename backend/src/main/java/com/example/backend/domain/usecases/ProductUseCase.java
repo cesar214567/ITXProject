@@ -1,5 +1,6 @@
 package com.example.backend.domain.usecases;
 
+import com.example.backend.domain.models.MultiQuery;
 import com.example.backend.domain.models.Product;
 import com.example.backend.domain.models.Query;
 import com.example.backend.domain.models.gateways.ProductGateway;
@@ -18,8 +19,12 @@ public class ProductUseCase {
         return productGateway.save(product);
     }
 
-    public Flux<Product> findProductsOrderedBy(@Valid Query query){
-        return productGateway.findProductsOrderedBy(query);
+    public Flux<Product> findProductsOrderedByQuery(@Valid Query query){
+        return productGateway.findProductsOrderedByQuery(query);
+    }
+
+    public Flux<Product> findProductsOrderedByMultiQuery(@Valid MultiQuery multiQuery){
+        return productGateway.findProductsOrderedByMultiQuery(multiQuery);
     }
 
 }

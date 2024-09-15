@@ -13,9 +13,9 @@ public class ProductRouter {
     @Bean
     public RouterFunction<ServerResponse> userRouterFunction(ProductHandler productHandler) {
         return RouterFunctions.
-                route(POST("/products"), productHandler::create)
-                .andRoute(POST("/products/index"), productHandler::getProducts);
-                //.andRoute(GET("/products"), productHandler::updateUser);
+                route(POST("/v1/products"), productHandler::create)
+                .andRoute(GET("/v1/products/index"), productHandler::getProductsByQuery)
+                .andRoute(POST("/v2/products/index"), productHandler::getProductsByMultiQuery);
 
     }
 }

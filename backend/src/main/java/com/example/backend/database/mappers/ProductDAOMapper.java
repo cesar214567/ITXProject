@@ -23,6 +23,7 @@ public class ProductDAOMapper {
                 .name(productDao.getName())
                 .salesUnit(productDao.getSalesUnit())
                 .stock(productDao.getStock())
+                .weightedValue(productDao.getWeightedValue())
                 .build();
     }
 }

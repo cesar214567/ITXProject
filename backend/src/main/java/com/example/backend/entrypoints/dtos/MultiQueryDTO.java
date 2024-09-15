@@ -3,6 +3,7 @@ package com.example.backend.entrypoints.dtos;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
+import java.util.List;
 import java.util.Map;
 
 @Getter
@@ -12,14 +13,14 @@ import java.util.Map;
 @Builder(toBuilder = true)
 public class MultiQueryDTO {
     @NotNull(message = "queryAttributes cannot be null")
-    private Map<String,QueryWeight> queryAttributes;
+    private List<QueryWeightDTO> queryAttributes;
     @NotNull(message = "asc cannot be null")
     private Boolean asc;
 
     @Getter
     @Setter
     @AllArgsConstructor
-    public static class QueryWeight{
+    public static class QueryWeightDTO{
         private String attribute;
         private Double weight;
     }

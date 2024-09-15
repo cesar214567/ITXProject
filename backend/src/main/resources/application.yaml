@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: backend
+  data:
+    mongodb:
+      uri: mongodb://admin:password@localhost:27017/mydatabase?authSource=admin
+
+attributes:
+  product:
+    keys:
+      salesUnit: value
+      stock: hash
+

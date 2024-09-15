@@ -23,5 +23,5 @@ public class ProductDao {
     private String name;
     private Integer salesUnit;
     private Map<String, Integer> stock;
-    private int sumStocks;
+    private Double weightedValue;
 }

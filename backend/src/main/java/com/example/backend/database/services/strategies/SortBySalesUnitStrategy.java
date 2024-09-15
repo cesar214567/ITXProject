@@ -1,6 +1,7 @@
 package com.example.backend.database.services.strategies;
 
 import com.example.backend.database.entities.ProductDao;
+import com.example.backend.database.services.commons.StrategiesHelper;
 import com.example.backend.domain.models.Product;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -15,15 +16,12 @@ import reactor.core.publisher.Flux;
 @AllArgsConstructor
 public class SortBySalesUnitStrategy implements SortingStrategy{
     private final ReactiveMongoTemplate mongoTemplate;
+    private final StrategiesHelper strategiesHelper;
     private final String SALES_UNIT = "salesUnit";
     @Override
     public Flux<ProductDao> applySorting(Boolean asc) {
-        Sort.Order order;
-        if (Boolean.TRUE.equals(asc)){
-            order = Sort.Order.asc(SALES_UNIT);
-        }else{
-            order = Sort.Order.desc(SALES_UNIT);
-        }
-        return mongoTemplate.find(new Query().with(Sort.by(order)),ProductDao.class);
+        var order = strategiesHelper.getOrder(asc,SALES_UNIT);
+        return mongoTemplate.find(new Query().with(order),ProductDao.class);
     }
+
 }

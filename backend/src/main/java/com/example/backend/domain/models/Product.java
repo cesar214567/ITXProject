@@ -15,4 +15,5 @@ public class Product {
     private String name;
     private Integer salesUnit;
     private Map<String, Integer> stock;
+    private Double weightedValue;
 }
