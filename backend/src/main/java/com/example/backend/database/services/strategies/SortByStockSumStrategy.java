@@ -11,7 +11,7 @@ import reactor.core.publisher.Flux;
 @Component("stockSum")
 @AllArgsConstructor
 public class SortByStockSumStrategy implements SortingStrategy{
-    private final String SUM_STOCKS = "sumStocks";
+    private final String SUM_STOCKS = "stockSum";
     private final String STOCK = "stock";
     private final String SALES_UNIT = "salesUnit";
     private final String NAME = "name";

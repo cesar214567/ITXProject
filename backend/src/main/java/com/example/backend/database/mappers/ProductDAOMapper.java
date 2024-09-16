@@ -24,6 +24,7 @@ public class ProductDAOMapper {
                 .salesUnit(productDao.getSalesUnit())
                 .stock(productDao.getStock())
                 .weightedValue(productDao.getWeightedValue())
+                .stockSum(productDao.getStockSum())
                 .build();
     }
 }
