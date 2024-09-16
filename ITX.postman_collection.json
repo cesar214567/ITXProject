@@ -1,0 +1,123 @@
+{
+	"info": {
+		"_postman_id": "af253337-1ee2-428c-a8f1-e4cd2fe0a16f",
+		"name": "ITX",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8335855"
+	},
+	"item": [
+		{
+			"name": "{{localURL}}/products",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"SLOGAN T-SHIRT\",\r\n    \"salesUnit\":20,\r\n    \"stock\":{\r\n        \"S\":9,\r\n        \"M\":2,\r\n        \"L\":5\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localURL}}/v1/products",
+					"host": [
+						"{{localURL}}"
+					],
+					"path": [
+						"v1",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{localURL}}/products Copy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{localURL}}/v1/products/index?sortBy=salesUnit&asc=true",
+					"host": [
+						"{{localURL}}"
+					],
+					"path": [
+						"v1",
+						"products",
+						"index"
+					],
+					"query": [
+						{
+							"key": "sortBy",
+							"value": "salesUnit"
+						},
+						{
+							"key": "asc",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{localURL}}/products Copy 2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"queryAttributes\":[{\r\n    \"attribute\":\"stock\",\r\n    \"weight\": 0.2\r\n  },\r\n  {\r\n    \"attribute\":\"stock\",\r\n    \"weight\": 0.2\r\n  }],\r\n  \"asc\":true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localURL}}/v2/products/index",
+					"host": [
+						"{{localURL}}"
+					],
+					"path": [
+						"v2",
+						"products",
+						"index"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "localURL",
+			"value": "localhost:8080",
+			"type": "string"
+		}
+	]
+}

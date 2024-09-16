@@ -1,0 +1,18 @@
+version: '3.8'  # You can use other versions if needed
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb_container
+    ports:
+      - "27017:27017"  # Exposing MongoDB port to the host
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password
+      MONGO_INITDB_DATABASE: mydatabase  # This creates the initial database
+    volumes:
+      - mongo_data:/data/db  # Persisting data in a named volume
+
+volumes:
+  mongo_data:
+    driver: local

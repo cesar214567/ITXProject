@@ -1,0 +1,143 @@
+[{
+  "_id": {
+    "$binary": {
+      "base64": "C0NWpZ/TRo9Pm62upO7fqg==",
+      "subType": "03"
+    }
+  },
+  "name": "V-NECH BASIC SHIRT",
+  "salesUnit": 100,
+  "stock": {
+    "S": 4,
+    "M": 9,
+    "L": 0
+  },
+  "_class": "com.example.backend.database.entities.ProductDao",
+  "list": [
+    1,
+    2,
+    3,
+    4
+  ]
+},
+{
+  "_id": {
+    "$binary": {
+      "base64": "Ek3pu1k37ha6ypfG8L9mlA==",
+      "subType": "03"
+    }
+  },
+  "name": "CONTRASTING FABRIC T-SHIRT",
+  "salesUnit": 50,
+  "stock": {
+    "S": 35,
+    "M": 9,
+    "L": 9
+  },
+  "_class": "com.example.backend.database.entities.ProductDao",
+  "list": [
+    1,
+    2,
+    3,
+    4
+  ]
+},
+{
+  "_id": {
+    "$binary": {
+      "base64": "OE/qqQ8IDhGfgAggV+4Jpg==",
+      "subType": "03"
+    }
+  },
+  "name": "RAISED PRINT T-SHIRT",
+  "salesUnit": 80,
+  "stock": {
+    "S": 20,
+    "M": 2,
+    "L": 20
+  },
+  "_class": "com.example.backend.database.entities.ProductDao",
+  "list": [
+    1,
+    2,
+    3,
+    4
+  ]
+},
+{
+  "_id": {
+    "$binary": {
+      "base64": "L0No8tgR6wpwmDj70fFjnA==",
+      "subType": "03"
+    }
+  },
+  "name": "PLEATED T-SHIRT",
+  "salesUnit": 3,
+  "stock": {
+    "S": 25,
+    "M": 30,
+    "L": 10
+  },
+  "_class": "com.example.backend.database.entities.ProductDao",
+  "list": [
+    1,
+    2,
+    3,
+    4
+  ]
+},
+{
+  "_id": {
+    "$binary": {
+      "base64": "YUcqiF0gmOENRDsXdLnotA==",
+      "subType": "03"
+    }
+  },
+  "name": "CONTRASTING LACE T-SHIRT",
+  "salesUnit": 650,
+  "stock": {
+    "S": 0,
+    "M": 1,
+    "L": 0
+  },
+  "_class": "com.example.backend.database.entities.ProductDao",
+  "list": [
+    1,
+    2,
+    3,
+    4
+  ]
+},
+{
+  "_id": "224e0fe9-a951-451b-9594-fee7136850d8",
+  "name": "SLOGAN T-SHIRT",
+  "salesUnit": 20,
+  "stock": {
+    "S": 9,
+    "M": 2,
+    "L": 5
+  },
+  "_class": "com.example.backend.database.entities.ProductDao"
+},
+{
+  "_id": "bcbbacfd-44f9-4097-ad73-4e2c99fe4ae2",
+  "name": "705334ea-f4a4-4d38-9e93-718eecd13844",
+  "salesUnit": 20,
+  "stock": {
+    "S": 9,
+    "M": 2,
+    "L": 5
+  },
+  "_class": "com.example.backend.database.entities.ProductDao"
+},
+{
+  "_id": "c6de2952-7d67-4862-88af-39966543574e",
+  "name": "bab316b5-fae8-4f27-bf88-fa372c7a103d",
+  "salesUnit": 20,
+  "stock": {
+    "S": 9,
+    "M": 2,
+    "L": 5
+  },
+  "_class": "com.example.backend.database.entities.ProductDao"
+}]
