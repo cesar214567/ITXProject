@@ -6,13 +6,12 @@ import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import java.util.logging.Logger;
 
 @Service
 @AllArgsConstructor
 public class StrategiesHelper {
     private final ProductQueryConfigMap productQueryConfigMap;
-    private final String WEIGHTED_VALUE = "weightedValue";
+    private static final String WEIGHTED_VALUE = "weightedValue";
 
     public Sort getOrder(Boolean asc, String attribute){
         Sort.Order order;
@@ -30,12 +29,13 @@ public class StrategiesHelper {
 
         for(var it:multiQuery.getQueryAttributes()){
             String temp = "";
-            switch (productQueryConfigMap.getKeys().get(it.getAttribute())) {
+            switch (productQueryConfigMap.getKeys().getOrDefault(it.getAttribute(),"")) {
                 case "value" -> temp  ="{ $multiply: [ '$<attribute>' ,<weight> ] },";
                 case "hash" -> temp = "{ $multiply: [ { $sum: { $map: { input: { $objectToArray: '$<attribute>' }, as: 'item', in: '$$item.v' } } } ,<weight> ] },";
                 case "list" -> temp = "{ $multiply: [ { $sum: { $map: { input: '$<attribute>', as: 'item', in: '$$item' } } } ,<weight> ] },";
                 default -> {
                 }
+
             }
             query.append(temp
                     .replace("<attribute>",it.getAttribute())
@@ -43,7 +43,6 @@ public class StrategiesHelper {
         }
         query.deleteCharAt(query.length()-1);
         query.append("]}}}");
-        Logger.getAnonymousLogger().info(query.toString());
         return query.toString();
 
     }

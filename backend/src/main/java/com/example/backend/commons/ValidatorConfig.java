@@ -8,11 +8,12 @@ import reactor.core.publisher.Mono;
 
 @Service
 public class ValidatorConfig {
-    public final Validator validator = Validation.buildDefaultValidatorFactory().getValidator();
+    public final Validator validator;
     public final TechLogger techLogger;
 
     public ValidatorConfig(TechLogger techLogger) {
         this.techLogger = techLogger;
+        this.validator = Validation.buildDefaultValidatorFactory().getValidator();
     }
 
     public <T> Mono<T> validate(T object){

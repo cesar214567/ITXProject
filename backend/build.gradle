@@ -31,7 +31,21 @@ dependencies {
 	implementation 'org.glassfish:jakarta.el:4.0.2'
 
 }
+test {
+	testLogging {
+		// Show standard output (console logs)
+		showStandardStreams = true
 
+		// Set the events you want to log
+		events "passed", "skipped", "failed"
+
+		// Enable logging at DEBUG level
+		outputs.upToDateWhen { false }
+	}
+
+	// Set the logging level for tests
+	systemProperty 'org.gradle.logging.level', 'DEBUG'
+}
 tasks.named('test') {
 	useJUnitPlatform()
 }
